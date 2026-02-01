@@ -134,7 +134,7 @@
       <p>Fill the form and our team will contact you.</p>
     </div>
 
-    <form id="contact" action="#" method="post">
+    <form id="joinForm">
       <div class="row">
         <div class="col-lg-6">
           <input name="name" type="text" placeholder="Your Name" required>
@@ -164,6 +164,9 @@
         <div class="col-lg-12">
           <button type="submit" class="main-button">Submit</button>
         </div>
+        <p id="successMsg" style="display:none; color:#28a745; margin-top:15px; font-weight:600;">
+          Submitted Successfully! Our team will contact you soon.
+        </p>
       </div>
     </form>
   </div>
@@ -206,6 +209,13 @@
 <script src="assets/js/jquery-2.1.0.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/custom.js"></script>
+<script>
+  document.getElementById("joinForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // 405 error stop
 
+    document.getElementById("successMsg").style.display = "block";
+    this.reset(); // form clear
+  });
+</script>
 </body>
 </html>
